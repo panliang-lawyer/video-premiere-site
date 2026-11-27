@@ -111,3 +111,31 @@ a:focus-visible { border-radius: 2px; outline: 2px solid var(--gold); outline-of
 @media (forced-colors: active) {
   .mark-dot, .status-dot { border: 1px solid buttontext; box-shadow: none; }
 }
+
+.fullscreen-button {
+  display: none;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  border: 1px solid rgba(242, 198, 109, 0.52);
+  border-radius: 3px;
+  background: rgba(242, 198, 109, 0.12);
+  color: var(--mist);
+  font: 600 0.92rem var(--body);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fullscreen-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.fullscreen-button:active {
+  background: rgba(242, 198, 109, 0.2);
+}
+
+@media (max-width: 900px) {
+  .fullscreen-button { display: block; }
+}
