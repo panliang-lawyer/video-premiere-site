@@ -139,3 +139,46 @@ a:focus-visible { border-radius: 2px; outline: 2px solid var(--gold); outline-of
 @media (max-width: 900px) {
   .fullscreen-button { display: block; }
 }
+
+
+.blessing {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  padding-block: clamp(88px, 12vw, 152px);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.blessing p { margin-bottom: 0; }
+
+.blessing-lead {
+  color: var(--mist);
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4.7vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: 0.08em;
+}
+
+.blessing-wish {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.5vw, 2.4rem);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+.blessing-signature {
+  margin-top: 18px;
+  color: var(--cloud);
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 620px) {
+  .blessing { gap: 20px; padding-block: 72px 88px; }
+  .blessing-lead { font-size: clamp(2rem, 10vw, 3rem); }
+  .blessing-wish { max-width: 14em; font-size: 1.25rem; }
+  .blessing-signature { max-width: 20em; line-height: 1.8; }
+}
