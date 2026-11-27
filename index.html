@@ -28,11 +28,12 @@
 
         <div class="screen-shell">
           <div class="screen screen-live">
-            <video class="film" controls="" controlslist="nodownload noremoteplayback" disablepictureinpicture="" playsinline="" preload="metadata" poster="https://video-premiere-5ab592a6.ybb690522040.chatgpt.site/media/poster.jpg" aria-label="播放袁宇鸿同志退休纪念影片">
+            <video class="film" controls="" controlslist="nodownload noremoteplayback" disablepictureinpicture="" playsinline="" webkit-playsinline="" x5-playsinline="" x5-video-player-fullscreen="true" preload="metadata" poster="https://video-premiere-5ab592a6.ybb690522040.chatgpt.site/media/poster.jpg" aria-label="播放袁宇鸿同志退休纪念影片">
               <source src="https://video-premiere-5ab592a6.ybb690522040.chatgpt.site/media/retirement-film-20261127.mp4" type="video/mp4">
               您的浏览器暂不支持视频播放，请更换浏览器后重试。
             </video>
           </div>
+          <button class="fullscreen-button" id="fullscreen-button" type="button">在微信中全屏播放</button>
           <div class="screen-meta" aria-label="视频信息">
             <span>画幅　16∶9</span>
             <span>片长　03∶15</span>
@@ -56,4 +57,24 @@
     </footer>
   
 
+<script>
+(function () {
+  var video = document.querySelector('.film');
+  var button = document.getElementById('fullscreen-button');
+  if (!video || !button) return;
+  button.addEventListener('click', function () {
+    video.play().catch(function () {});
+    if (typeof video.webkitEnterFullscreen === 'function') {
+      video.webkitEnterFullscreen();
+      return;
+    }
+    var request = video.requestFullscreen || video.webkitRequestFullscreen || video.mozRequestFullScreen || video.msRequestFullscreen;
+    if (request) {
+      Promise.resolve(request.call(video)).catch(function () { window.location.href = video.currentSrc; });
+      return;
+    }
+    window.location.href = video.currentSrc;
+  });
+})();
+</script>
 </body></html>
